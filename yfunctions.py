@@ -183,3 +183,33 @@ def get_latest_file(directory):
     files = os.listdir(directory)
     latest_file = max(files, key=os.path.getctime)
     return os.path.join(directory, latest_file)
+
+################ USAGE ################
+
+# ---------------- SQL ----------------#
+# search_table('test', conn)
+# list_columns('test', conn)
+# create_script('test', conn)
+# df = pd.read_sql('SELECT * FROM test', conn)
+# upload_sql(df, 'test', conn)
+# engine.execute('DELETE FROM table WHERE id = 1')
+
+# ---------------- MANIPULATION ----------------#
+# df = df.merge(df2[['id', 'name']], how='left', left_on='id', right_on='id')
+# df = df.drop_duplicates(subset='id', keep='last', inplace=True)
+# df1['value'] = df1['id'].apply(lookup, args = (df2['id'], df2['value']))
+# print(tabulate(df1, headers='keys', tablefmt='pretty'))
+# substring_location = find_substring(df, 'test')
+# substring_row = substring_location[0]
+# substring_col = substring_location[1]
+# normalized_string = normalize_string(string)
+# df['normalized_string'] = df['value'].apply(normalize_string)
+# letters_only_string = letters_only(string)
+# df['letters_only_string'] = df['value'].apply(letters_only)
+
+# ---------------- WRITE ----------------#
+# df = pd.read_csv('/path/to/file.csv', encoding='ansi', sep=';', lineterminator='\\r', encoding_errors='ignore', usecols=['id', 'name', 'value'])
+# export_to_excel([df], '/path/to/file.xlsx')
+
+# ---------------- OTHER ----------------#
+# file_path = get_latest_file('/path/to/directory')
