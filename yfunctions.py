@@ -176,6 +176,16 @@ def export_to_excel(dataframes, filename):
     # Save the workbook
     workbook.save(filename)
 
+# function that receives a dataframe as parameter and prints its columns as well as the value in the first row using tabulate
+
+
+def print_df(df):
+    column_names = df.columns
+    first_row = df.iloc[0].values
+    data = {'column_name': column_names, 'first_row': first_row}
+    print(tabulate(pd.DataFrame(data), headers='keys', tablefmt='pretty'))
+
+
 ################ OTHER FUNCTIONS ################
 
 
@@ -210,6 +220,7 @@ def get_latest_file(directory):
 # ---------------- WRITE ----------------#
 # df = pd.read_csv('/path/to/file.csv', encoding='ansi', sep=';', lineterminator='\\r', encoding_errors='ignore', usecols=['id', 'name', 'value'])
 # export_to_excel([df], '/path/to/file.xlsx')
+# print_df(df)
 
 # ---------------- OTHER ----------------#
 # file_path = get_latest_file('/path/to/directory')
