@@ -106,6 +106,13 @@ def find_substring(df, substring):
         for j in range(len(df.iloc[i])):
             if substring in df.iloc[i][j]:
                 return i, j
+            
+def cleanse_data(text):
+    if type(text) == str:
+        text = re.sub(r"[^\S ]+", "", text)
+        text = re.sub(r"\s+", " ", text)
+        text = text.strip()
+    return text
 
 
 def normalize_string(string):
