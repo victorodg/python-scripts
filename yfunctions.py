@@ -35,8 +35,8 @@ def search_table(substring, conn):
     sql_tables = pd.read_sql('SELECT * FROM information_schema.tables', conn)
     sql_tables = sql_tables[sql_tables['TABLE_NAME'].str.contains(substring)]
 
-    def concat_values(row)
-    return f"{row['TABLE_SCHEMA']}.{row['TABLE_NAME']}"
+    def concat_values(row):
+        return f"{row['TABLE_SCHEMA']}.{row['TABLE_NAME']}"
 
     sql_tables['TABLE_NAME'] = sql_tables.apply(concat_values, axis=1)
 
