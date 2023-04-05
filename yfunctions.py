@@ -129,7 +129,7 @@ def only_letters(string):
     if not isinstance(string, str):
         string = str(string)
 
-    string = s.lower()
+    string = string.lower()
     return re.sub('[^a-zA-Z]', '', string)
 
 ################ WRITE FUNCTIONS ################
