@@ -27,7 +27,7 @@ def login(server, database, username, password):
     conn = 'mssql+pyodbc://'+username+':'+password+'@'+server + \
         '/'+database+'?driver=SQL+Server+Native+Client+11.0'
     engine = create_engine(conn, echo=False, pool_size=50, max_overflow=100)
-    return [conn, engine]
+    return engine
 
 
 def search_table(substring, conn):
